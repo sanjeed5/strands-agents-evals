@@ -178,7 +178,7 @@ how you intend to run.) If your suite uses a custom strategy class, pass it via
 report.display()                       # breach matrix + per-group rollups
 report.display(verbose=True)           # also print full attacker/target transcripts and blocked attempts -- use this to verify a verdict by eye when the LLM judge is suspect
 
-for result in report.failed_cases:     # worst-first; same as filtering attack_results() by `not passed`
+for result in report.failed_cases:     # worst-first; same as filtering attack_results() by `state == "breached"`
     print(f"BREACH {result.case_name} [{result.severity}]: {result.score:.2f}")
 
 for group in report.by_risk_category():
